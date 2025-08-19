@@ -1,38 +1,266 @@
-.App {
-  text-align: center;
+/* ===== Reset / Base ===== */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+  color: #0051ff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Tema (mavi tonları) */
+:root{
+  --blue-50: #ffffff;
+  --blue-100: #ffffff;
+  --blue-200: #ffffff;
+  --blue-400: #0070ff;
+  --blue-500: #0061ff;
+  --blue-600: #0051ff;
+  --ink-900: #0045ea;
+  --ink-700: #ffffff;
+  --ink-500: #ffffff;
+  --border:   #e5e7eb;
+  --panel: #0059ff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Konteyner */
+.container {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* Başlıklar */
+h1, h2, h3 {
+  margin: 12px 0;
+  line-height: 1.25;
+  color: var(--ink-900);
+}
+h2 { font-weight: 700; letter-spacing: -0.01em; }
+
+/* ===== NAVBAR ===== */
+.topnav{
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: center; align-items: center;
+  gap: 100px; flex-wrap: wrap;
+  padding: 14px 18px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Site adı (sola değil ortaya da uyumlu kalsın) */
+.topnav .brand{
+  font-weight: 700; letter-spacing: 1px;
+  color: var(--ink-900);
+  margin-right: 6px;
+}
+
+/* Linkler */
+.topnav a{
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--ink-700);
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+  border: 1px solid transparent;
+}
+.topnav a:hover{
+  background: var(--blue-50);
+  color: var(--ink-900);
+  border-color: var(--blue-100);
+}
+.topnav a.active{
+  color: var(--ink-900);
+  background: var(--blue-50);
+  border-color: var(--blue-200);
+  box-shadow: 0 1px 0 rgba(0, 71, 223, 0.06);
+}
+
+/* Ayraç */
+.topnav .divider{
+  width: 1px; height: 18px; background: var(--border);
+  margin: 0 4px;
+}
+
+
+.container a:not(.topnav a){
+  color: var(--blue-600);
+}
+.container a:not(.topnav a):hover{
+  color: var(--blue-500);
+  text-decoration: underline;
+
+
+  /* =============== ADMIN POLISH PACK =============== */
+
+  /* Sayfa başlığı */
+  h1, .page-title {
+    font-size: 1.5rem;
+    font-weight: 700 ;
+    letter-spacing: 7px;
+    color: #0f172a; /* slate-900 */
+    margin: 24px 0 12px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  /* Admin tabloları (düz HTML <table> için nötr modern görünüm) */
+  table {
+    width: 100%;
+    border-collapse: separate;          /* radius için separate şart */
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid #e5e7eb;          /* zincir kenar rengi */
+    border-radius: 12px;
+    overflow: hidden;                    /* üst köşe radius uygulansın */
+    box-shadow: 0 1px 2px rgba(16,24,40,.04);
   }
-  to {
-    transform: rotate(360deg);
+
+  thead th {
+    background: #f8fafc;                /* header arka plan */
+    color: #475569;                      /* slate-600 */
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid #eef2f7;
+  }
+
+  tbody td {
+    padding: 12px 14px;
+    border-top: 1px solid #f1f5f9;       /* satır ayırıcı */
+    vertical-align: middle;
+    color: #0f172a;
+  }
+
+  tbody tr:hover td {
+    background: #f9fbff;                 /* hafif hover */
+  }
+
+  /* Arama çubuğu ve üst araçlar (admin listelerin üstündeki input/select alanları) */
+  input[type="text"],
+  input[type="date"],
+  input[type="file"],
+  select,
+  textarea {
+    width: 100%;
+    max-width: 720px;                    /* masada taşmasın */
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fff;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+    font: inherit;
+  }
+
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  input[type="file"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #3b82f6;               /* primary-500 */
+    box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+  }
+
+  textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+
+  /* Form kartı (Yeni Haber / Yeni Duyuru kutusu) */
+  form, .admin-form {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1px 2px rgba(16,24,40,.04);
+  }
+
+  label {
+    display: inline-block;
+    font-size: .875rem;
+    color: #475569;
+    margin-bottom: 6px;
+  }
+
+  /* Butonlar (Düzenle / Sil / Kaydet) – mevcut <button>’lara uygulanır */
+  button {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .btn,
+  button {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    color: #0f172a;
+    font-weight: 600;
+    line-height: 1;
+    transition: transform .06s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+  }
+
+  .btn:hover,
+  button:hover {
+    background: #f8fafc;
+    box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 0 0 3px rgba(15,23,42,.03);
+  }
+
+  .btn:active,
+  button:active {
+    transform: translateY(1px);
+  }
+
+  /* Özel durumlar */
+  .btn-primary {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #003fff;
+  }
+  .btn-primary:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+
+  .btn-danger {
+    background: #0258ff;
+    border-color: #0325ff;
+    color: #0045ff;
+  }
+  .btn-danger:hover {
+    background: #022cff;
+    border-color: #0053ff;
+  }
+
+  /* Admin listelerin altındaki sayfalama tuşları */
+  .pagination,
+  .pagination button,
+  .pagination a,
+  button[disabled] {
+    border-radius: 8px;
+  }
+
+  button[disabled] {
+    opacity: .55;
+    cursor: not-allowed;
+  }
+
+  /* Admin genel konteyner aralığı (sayfa nefes alsın) */
+  .admin-container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .admin-section {
+    margin-top: 18px;
+  }
+
+  /* “Yeni …” kutusundaki inputlar arası boşluk */
+  .admin-form .field + .field {
+    margin-top: 10px;
   }
 }
