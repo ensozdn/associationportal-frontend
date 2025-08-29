@@ -2,6 +2,12 @@ import React from "react";
 import { FrontEvent } from "../types/Event";
 import { getEvents } from "../services/events";
 
+
+//AnnouncementsPage: Son kullanıcının duyuruları görüp arayabildiği,
+// istemci tarafında sayfalayabildiği bir liste sayfasıdır. Kart görünümleri ile özetleri gösterir,
+// kart tıklanınca modalda detayları açar. Backend’den getEvents() ile veriyi alır ve yalnızca ANNOUNCEMENT tipini ekranda sunar.
+
+
 function formatDate(iso?: string | null) {
     if (!iso) return "—";
     const d = new Date(iso);

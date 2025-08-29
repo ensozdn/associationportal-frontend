@@ -11,6 +11,12 @@ import AdminAnnouncementsPage from "./pages/AdminAnnouncementsPage";
 import NewsPage from "./pages/NewsPage";
 import AnnouncementsPage from "./pages/AnnouncementsPage";
 
+
+// KISACA TEMEL GÖREVİ : App.tsx → Uygulamanın giriş noktası.
+// 	Router kurulumunu yapar.
+// 	Navbar ile public/admin sayfalarına yönlendirme sağlar.
+// 	Home sayfasında backend’den eventleri çekip EventCard ile gösterir.
+
 // ===== Home (yalın liste) =====
 function Home() {
     const [items, setItems] = React.useState<FrontEvent[]>([]);

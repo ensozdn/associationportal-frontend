@@ -1,5 +1,14 @@
 import api from "./api";
 
+
+
+// KISACA TEMEL GÖREVİ :Bu dosya, frontend’in event servis katmanı:
+// 	Backend ile haber/duyuru arama, listeleme, detay, oluşturma, güncelleme, silme işlemlerini yapar.
+// 	Backend response’unu FrontEvent modeline map’leyerek UI’ı backend alan adlarından izole eder.
+// 	Tarih ve payload alanlarını normalize ederek Strategy kurallarıyla uyumlu, temiz istekler gönderir.
+
+
+
 // ---- Tipler ----
 
 export type EventType = "NEWS" | "ANNOUNCEMENT";

@@ -1,6 +1,15 @@
 import React from "react";
 import type { FrontEvent } from "../types/Event";
 
+//  Görevi: Tek bir Event nesnesini (haber, duyuru veya normal etkinlik) kart görünümünde ekranda göstermek.
+// 	Nasıl?
+// 	Event’in tipini (NEWS / ANNOUNCEMENT / EVENT) kontrol eder.
+// 	Eğer announcement ise: görsel (imagePath) ve geçerlilik tarihi (validUntil) varsa onları gösterir.
+// 	Eğer news ise: haber linki (newsUrl) ekler, “Habere git ↗” butonunu render eder.
+// 	Ortak kısımda subject (başlık) ve content (içerik) gösterilir.
+//  Kısaca: Backend’den gelen FrontEvent’i alır → tipine göre uygun görselleştirme yapar → kullanıcıya okunabilir, şık bir kart UI sunar.
+//  Yani bu dosya, frontend’de event bilgisini kullanıcıya göstermekten sorumlu UI bileşenidir.
+
 const isNews = (e: FrontEvent) => e.eventType === "NEWS";
 const isAnnouncement = (e: FrontEvent) => e.eventType === "ANNOUNCEMENT";
 

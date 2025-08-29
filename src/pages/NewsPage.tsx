@@ -3,6 +3,10 @@ import React from "react";
 import type { FrontEvent } from "../types/Event";
 import { searchEvents } from "../services/events";
 
+//NewsPage: Kullanıcıların haberleri arayıp sayfalayarak kart grid’inde görmesini sağlar;
+// kart tıklanınca modalda detay ve “Habere git” linki sunar. Veriyi backend’den searchEvents({ type: "NEWS", ... }) ile çeker;
+// aramada debounce ve klavye ile kapatılabilen modal gibi UX detaylarına sahiptir.
+
 type SpringPage<T> = {
     content: T[];
     totalElements: number;

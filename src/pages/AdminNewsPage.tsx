@@ -2,6 +2,10 @@ import React from "react";
 import type { FrontEvent } from "../types/Event";
 import { searchEvents, createNews, updateNews, deleteEvent } from "../services/events";
 
+//KSIACA TEMEL GÖREVİ : AdminNewsPage:
+// Admin’in haberleri aradığı, listelediği, sayfaladığı; yeni haber eklediği,
+// mevcut haberi güncellediği ve sildiği yönetim sayfasıdır. Backend’in NEWS tipli event uçlarıyla entegre çalışır.
+
 type SpringPage<T> = {
     content: T[];
     totalElements: number;

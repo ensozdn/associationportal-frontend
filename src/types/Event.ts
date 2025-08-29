@@ -1,5 +1,14 @@
 export type EventType = "NEWS" | "ANNOUNCEMENT";
 
+
+//KISACA TEMEL GÖREVİ : Backend’ten gelen ham veri (BackendEvent)
+// 	Frontend’in kullandığı normalize edilmiş veri (FrontEvent)
+// 	Form payload tipleri (NewsForm, AnnouncementForm)
+// 	Sayfalama tipleri (SpringPage<T>)
+// 	EventType union type (NEWS | ANNOUNCEMENT)
+
+
+
 // Frontend'te kullandığımız normalize edilmiş tip
 export interface FrontEvent {
     id: number;

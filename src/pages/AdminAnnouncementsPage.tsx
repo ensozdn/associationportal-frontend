@@ -444,3 +444,20 @@ export default function AdminAnnouncementsPage() {
         </div>
     );
 }
+
+
+// Veri Listeleme
+// 		Backend’den searchEvents({ type: "ANNOUNCEMENT", ... }) çağırıyor.
+// 		Dönen duyuruları tablo halinde gösteriyor (ID, Başlık, Geçerlilik, Görsel).
+// 		Sayfalama (ilk/önceki/sonraki/son) ve sıralama (ID, başlık) var.
+//
+// 2. Filtreleme & Arama
+// 		Üstte arama kutusu (q) ile başlık/içerik bazlı arama yapılabiliyor.
+// 		Sayfa boyutu seçilebiliyor (5, 10, 20/sayfa).
+//
+// 3. CRUD İşlemleri
+// 		Yeni duyuru ekleme → form ile createAnnouncement(payload) çağırıyor.
+// 		Güncelleme → tablo satırından “Düzenle” → form dolduruluyor → updateAnnouncement(id, payload) ile güncelleniyor.
+// 		Silme → tablo satırından “Sil” → deleteEvent(id) çağırılıyor.
+//KISACA TEMEL GÖREVİ :
+// AdminAnnouncementsPage: Admin’in duyuruları aradığı, listelediği, sayfaladığı, eklediği, güncellediği ve sildiği tam kapsamlı yönetim sayfasıdır; backend’le entegre çalışır ve tüm akışı tek komponentte toplar.
